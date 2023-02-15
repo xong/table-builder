@@ -68,6 +68,7 @@ final class DoctrineOrmAdapter implements DataAdapterInterface
         return (int) $queryBuilder
             ->resetDQLPart('select')
             ->resetDQLPart('orderBy')
+            ->resetDQLPart('groupBy')
             ->select($this->queryBuilder->expr()->countDistinct($from->getAlias()))
             ->getQuery()
             ->getSingleScalarResult();
